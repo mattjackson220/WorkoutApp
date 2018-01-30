@@ -9,6 +9,7 @@
 import UIKit
 
 class LogoViewController: UIViewController {
+    //Adding test comment
     
     var toningBackAndBicepsMap = [String: String]()
     var bulkingBackAndBicepsMap = [String: String]()
