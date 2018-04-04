@@ -48,6 +48,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     var workoutWeekMax: Int!
 //    var weekHasBeenUpdated: Bool! = false
     var hideCellAllowed: Bool! = false
+    var currentTab: WorkoutButtonView!
     
     @IBAction func editExercisesButtonClicked(_ sender: Any) {
         let cells = self.exerciseTableView.visibleCells as! Array<ExerciseViewCell>
@@ -150,9 +151,15 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.defaultStorage.set(newWeekMaxFieldInt, forKey: self.buttonText + self.tabText + "WorkoutWeekMax")
             
             self.workoutWeekCounterText.text = "Week: " + String(newWeekCountFieldInt) + " / " + String(newWeekMaxFieldInt)
+            
+            self.loadTabWorkouts(sender: self.currentTab)
+
+
         } ))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
+
     }
     
     override func viewDidLoad() {
@@ -220,6 +227,9 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             backToMenuButton.isHidden = true
         }
         
+        workoutWeek = defaultStorage.integer(forKey: buttonText + tabText + "WorkoutWeekCount")
+        workoutWeekMax = defaultStorage.integer(forKey: buttonText + tabText + "WorkoutWeekMax")
+        
         let tabString = defaultStorage.string(forKey: buttonText + "TabString")
         let tabArray = (tabString?.components(separatedBy: ","))! as [String]
         let tabCount = (tabArray.count) as Int
@@ -241,9 +251,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         newTabButton.center.x = 12 + (0.5 * newTabButton.frame.width)
         newTabButton.layer.cornerRadius = 8
         newTabButton.isHidden = true
-        
-        workoutWeek = defaultStorage.integer(forKey: buttonText + tabText + "WorkoutWeekCount")
-        workoutWeekMax = defaultStorage.integer(forKey: buttonText + tabText + "WorkoutWeekMax")
+    
         
         workoutWeekCounterText.text = "Week: " + String(workoutWeek) + " / " + String(workoutWeekMax)
         workoutWeekCounterText.isUserInteractionEnabled = false
@@ -323,6 +331,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         let button = WorkoutButtonView(frame: CGRect(x: xValue, y: Int(yvalue), width: width, height: height ))
         if buttonTitle == self.tabText {
             button.backgroundColor = UIColor.darkGray
+            self.currentTab = button
         } else {
             button.backgroundColor = UIColor.lightGray
         }
@@ -354,6 +363,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     func loadTabWorkouts(sender: WorkoutButtonView) {
         self.resetTabColor()
         sender.backgroundColor = UIColor.darkGray
+        self.currentTab = sender
         self.tabText = (sender.titleLabel?.text)!
         defaultStorage.set(tabText, forKey: "tabText")
         

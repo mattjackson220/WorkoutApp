@@ -9,20 +9,22 @@
 import UIKit
 
 class LogoViewController: UIViewController {
-    //Adding test comment
     
     var toningBackAndBicepsMap = [String: String]()
+    var toningBackAndBicepsMap2 = [String: String]()
     var bulkingBackAndBicepsMap = [String: String]()
     var intBackAndBiceps15Map = [String: String]()
     var intBackAndBiceps12Map = [String: String]()
     
     var toningChestAndTricepsMap = [String: String]()
+    var toningChestAndTricepsMap2 = [String: String]()
     var bulkingChestAndTricepsMap = [String: String]()
     var intChestAndTriceps15Map = [String: String]()
     var intChestAndTriceps12Map = [String: String]()
     
     var bulkingLegsMap = [String:String]()
     var toningLegsMap = [String:String]()
+    var toningLegsMap2 = [String:String]()
     var intLegs15Map = [String:String]()
     var intLegs12Map = [String:String]()
     
@@ -31,6 +33,7 @@ class LogoViewController: UIViewController {
     var intShoulders12Map = [String:String]()
     
     var toningExercisesMap = [String:[String:String]]()
+    var toningExercisesMap2 = [String:[String:String]]()
     var bulkingExercisesMap = [String:[String:String]]()
     var intExercises15Map = [String:[String:String]]()
     var intExercises12Map = [String:[String:String]]()
@@ -51,6 +54,10 @@ class LogoViewController: UIViewController {
         toningExercisesMap["Back and Biceps"] = toningBackAndBicepsMap
         toningExercisesMap["Chest and Triceps"] = toningChestAndTricepsMap
         toningExercisesMap["Legs"] = toningLegsMap
+        
+        toningExercisesMap2["Back and Biceps"] = toningBackAndBicepsMap2
+        toningExercisesMap2["Chest and Triceps"] = toningChestAndTricepsMap2
+        toningExercisesMap2["Legs"] = toningLegsMap2
 
         bulkingExercisesMap["Back and Biceps"] = bulkingBackAndBicepsMap
         bulkingExercisesMap["Chest and Triceps"] = bulkingChestAndTricepsMap
@@ -98,10 +105,22 @@ class LogoViewController: UIViewController {
                 for exercise in toningExercisesMap {
                     let initializeToningDbList = initializeExercises(exerciseMap: exercise.value)
                     defaultStorage.set(true, forKey: "Toning1")
-                    self.loadRowForExercises(exerciseList: initializeToningDbList, exerciseTitle: "Toning", tabTitle: exercise.key, weekCount: 8)
+                    self.loadRowForExercises(exerciseList: initializeToningDbList, exerciseTitle: "Toning", tabTitle: exercise.key, weekCount: 4)
                     tabString = tabString.isEmpty ? exercise.key : tabString + "," + exercise.key
                 }
             defaultStorage.set(tabString, forKey: "ToningTabString")
+        }
+        
+        let toning2HasBeenInitialized = defaultStorage.bool(forKey: "Toning2")
+        if (!toning2HasBeenInitialized) {
+            tabString = ""
+            for exercise in toningExercisesMap2 {
+                let initializeToningDbList = initializeExercises(exerciseMap: exercise.value)
+                defaultStorage.set(true, forKey: "Toning2")
+                self.loadRowForExercises(exerciseList: initializeToningDbList, exerciseTitle: "Toning2", tabTitle: exercise.key, weekCount: 4)
+                tabString = tabString.isEmpty ? exercise.key : tabString + "," + exercise.key
+            }
+            defaultStorage.set(tabString, forKey: "Toning2TabString")
         }
         
         let bulkingHasBeenInitialized = defaultStorage.bool(forKey: "Bulking1")
@@ -151,7 +170,7 @@ class LogoViewController: UIViewController {
     
     func getShortDate(date: Date) -> String {
         let dF = DateFormatter()
-//        dF.timeStyle = DateFormatter.Style.full
+//        dF.timeStyle = DateFormatter.Style.full // for testing to simulate day changes every load
         dF.dateStyle = DateFormatter.Style.short
         let shortDate = dF.string(from: date)
         return shortDate
@@ -192,6 +211,14 @@ class LogoViewController: UIViewController {
         toningBackAndBicepsMap["Strive Curls"] = "3 x 25,20,15"
         toningBackAndBicepsMap["Hammer Curls"] = "1 x 100"
         
+        toningBackAndBicepsMap2["Lat Pull Downs"] = "3 x 25,20,15"
+        toningBackAndBicepsMap2["Bent DB Rows"] = "1 x 100"
+        toningBackAndBicepsMap2["Rear Delt Flys"] = "3 x 25,20,15"
+        toningBackAndBicepsMap2["Seated Rows"] = "1 x 100"
+        toningBackAndBicepsMap2["Seated High Rows"] = "3 x 25,20,15"
+        toningBackAndBicepsMap2["Strive Curls"] = "1 x 100"
+        toningBackAndBicepsMap2["Hammer Curls"] = "3 x 25,20,15"
+        
         bulkingBackAndBicepsMap["Deadlift"] = "3 x 8"
         bulkingBackAndBicepsMap["Rack Chins"] = "3 x 8"
         bulkingBackAndBicepsMap["Underhand Lat Pulldowns"] = "3 x 8"
@@ -227,6 +254,14 @@ class LogoViewController: UIViewController {
         toningChestAndTricepsMap["Palms Down Triceps"] = "3 x 25,20,15"
         toningChestAndTricepsMap["Palms Up Triceps"] = "1 x 100"
         
+        toningChestAndTricepsMap2["Bench"] = "3 x 25,20,15"
+        toningChestAndTricepsMap2["DB Incline"] = "1 x 100"
+        toningChestAndTricepsMap2["Cable Fly"] = "3 x 25,20,15"
+        toningChestAndTricepsMap2["Shoulder Press"] = "1 x 100"
+        toningChestAndTricepsMap2["Lateral Raises"] = "3 x 25,20,15"
+        toningChestAndTricepsMap2["Palms Down Triceps"] = "1 x 100"
+        toningChestAndTricepsMap2["Palms Up Triceps"] = "3 x 25,20,15"
+        
         bulkingChestAndTricepsMap["Incline Bench"] = "3 x 8"
         bulkingChestAndTricepsMap["Bench"] = "3 x 8"
         bulkingChestAndTricepsMap["Incline Flies"] = "3 x 8"
@@ -261,6 +296,14 @@ class LogoViewController: UIViewController {
         toningLegsMap["Lunges"] = "1 x 100"
         toningLegsMap["Standing Calf Raises"] = "3 x 25,20,15"
         toningLegsMap["Seated Calf Raises"] = "1 x 100"
+        
+        toningLegsMap2["Leg Extensions"] = "3 x 25,20,15"
+        toningLegsMap2["Squats"] = "1 x 100"
+        toningLegsMap2["Leg Curls"] = "3 x 25,20,15"
+        toningLegsMap2["Leg Press"] = "1 x 100"
+        toningLegsMap2["Lunges"] = "3 x 25,20,15"
+        toningLegsMap2["Standing Calf Raises"] = "1 x 100"
+        toningLegsMap2["Seated Calf Raises"] = "3 x 25,20,15"
         
         bulkingLegsMap["Squats"] = "3 x 8"
         bulkingLegsMap["Leg Press"] = "3 x 8"

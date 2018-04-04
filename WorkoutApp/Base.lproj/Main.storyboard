@@ -68,7 +68,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ws1-kE-j3K" kind="show" identifier="goToTone" action="showDetailViewController:sender:" id="efv-Bz-mMS"/>
+                                    <segue destination="QbX-XF-ONp" kind="show" id="iRa-vj-GbE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="bulkCycleButton" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sG-wx-YsL" customClass="WorkoutButtonView" customModule="WorkoutApp" customModuleProvider="target">
@@ -476,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tL-gL-deS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2471.0144927536235" y="330.16304347826087"/>
+            <point key="canvasLocation" x="3270" y="244"/>
         </scene>
         <!--Intermediate Workout Menu View Controller-->
         <scene sceneID="y7I-eM-rBE">
@@ -551,6 +551,80 @@
             </objects>
             <point key="canvasLocation" x="1590" y="834"/>
         </scene>
+        <!--Toning Menu View Controller-->
+        <scene sceneID="B2V-Gl-Aiv">
+            <objects>
+                <viewController id="QbX-XF-ONp" customClass="ToningMenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ddz-QP-iyM"/>
+                        <viewControllerLayoutGuide type="bottom" id="GoW-Cw-0S9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ryp-Xu-TSF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="int15CycleButton" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iK-Kv-XlJ" customClass="WorkoutButtonView" customModule="WorkoutApp" customModuleProvider="target">
+                                <rect key="frame" x="73" y="269" width="266" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="barbell-clipart-no-background-3.png">
+                                    <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ws1-kE-j3K" kind="show" identifier="goToToning1" id="uF9-JZ-4bg"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First 4 Weeks" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoH-bn-HKT" customClass="WorkoutTextView" customModule="WorkoutApp" customModuleProvider="target">
+                                <rect key="frame" x="114" y="280" width="185" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="in12CycleButton" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDa-iP-qwe" customClass="WorkoutButtonView" customModule="WorkoutApp" customModuleProvider="target">
+                                <rect key="frame" x="73" y="407" width="266" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="barbell-clipart-no-background-3.png">
+                                    <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ws1-kE-j3K" kind="show" identifier="goToToning2" id="acZ-QW-cQ5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Second 4 Weeks" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-jT-z1U" customClass="WorkoutTextView" customModule="WorkoutApp" customModuleProvider="target">
+                                <rect key="frame" x="114" y="418" width="185" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pick a Toning Cycle" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2R7-gL-KFr">
+                                <rect key="frame" x="13" y="179" width="389" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cxl-D4-L3L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVc-Zn-GvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="1084"/>
+        </scene>
     </scenes>
     <resources>
         <image name="JacksonLogo.png" width="1001" height="499"/>
@@ -560,8 +634,8 @@
         <image name="workoutlogo2.png" width="1001" height="499"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ab9-g0-FI1"/>
+        <segue reference="acZ-QW-cQ5"/>
         <segue reference="yrF-8D-fiX"/>
-        <segue reference="hhn-Mg-dkG"/>
+        <segue reference="wJS-OE-CR1"/>
     </inferredMetricsTieBreakers>
 </document>

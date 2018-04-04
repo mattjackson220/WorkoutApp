@@ -10,6 +10,7 @@
 		A51831F91F34DCD100D7D4C8 /* ExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51831F81F34DCD100D7D4C8 /* ExerciseViewCell.swift */; };
 		A525176A1F3DFEF900719EE7 /* CustomWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52517691F3DFEF900719EE7 /* CustomWorkoutsViewController.swift */; };
 		A525176C1F3E315F00719EE7 /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A525176B1F3E315F00719EE7 /* deleteButton.png */; };
+		A548BFFC206E917D00A2A27A /* ToningMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548BFFB206E917D00A2A27A /* ToningMenuViewController.swift */; };
 		A548E5111F475FE90014A52C /* WorkoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E5101F475FE90014A52C /* WorkoutButtonView.swift */; };
 		A548E5131F47627A0014A52C /* WorkoutDeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E5121F47627A0014A52C /* WorkoutDeleteButtonView.swift */; };
 		A548E5151F4762870014A52C /* WorkoutTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E5141F4762870014A52C /* WorkoutTextView.swift */; };
@@ -52,6 +53,7 @@
 		A51831F81F34DCD100D7D4C8 /* ExerciseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewCell.swift; sourceTree = "<group>"; };
 		A52517691F3DFEF900719EE7 /* CustomWorkoutsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWorkoutsViewController.swift; sourceTree = "<group>"; };
 		A525176B1F3E315F00719EE7 /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = ../../../../../Documents/test_game/deleteButton.png; sourceTree = "<group>"; };
+		A548BFFB206E917D00A2A27A /* ToningMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToningMenuViewController.swift; sourceTree = "<group>"; };
 		A548E5101F475FE90014A52C /* WorkoutButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutButtonView.swift; sourceTree = "<group>"; };
 		A548E5121F47627A0014A52C /* WorkoutDeleteButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDeleteButtonView.swift; sourceTree = "<group>"; };
 		A548E5141F4762870014A52C /* WorkoutTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTextView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				A54FCB171F2BE712009A5A2E /* WorkoutViewController.swift */,
 				A54FCB0F1F2BD94A009A5A2E /* MenuViewController.swift */,
 				A52517691F3DFEF900719EE7 /* CustomWorkoutsViewController.swift */,
+				A548BFFB206E917D00A2A27A /* ToningMenuViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A548BFFC206E917D00A2A27A /* ToningMenuViewController.swift in Sources */,
 				A54FCB181F2BE712009A5A2E /* WorkoutViewController.swift in Sources */,
 				A525176A1F3DFEF900719EE7 /* CustomWorkoutsViewController.swift in Sources */,
 				A548E5151F4762870014A52C /* WorkoutTextView.swift in Sources */,
@@ -501,12 +505,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3GPAVWYTJ;
 				INFOPLIST_FILE = WorkoutApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mjackson.WorkoutApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -515,12 +523,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3GPAVWYTJ;
 				INFOPLIST_FILE = WorkoutApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mjackson.WorkoutApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
