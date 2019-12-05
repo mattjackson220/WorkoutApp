@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Logo View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LogoViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LogoViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,7 +47,7 @@
         <!--Menu View Controller-->
         <scene sceneID="iO9-2j-OLC">
             <objects>
-                <viewController id="PJC-Ua-zHk" customClass="MenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="PJC-Ua-zHk" customClass="MenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dyB-Fd-HPF"/>
                         <viewControllerLayoutGuide type="bottom" id="ee3-Rg-lIx"/>
@@ -80,7 +77,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ws1-kE-j3K" kind="show" identifier="goToBulk" action="showDetailViewController:sender:" id="ab9-g0-FI1"/>
+                                    <segue destination="Ws1-kE-j3K" kind="show" identifier="goToBulk" id="ab9-g0-FI1"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bulking Cycle" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EkX-oa-2w6" customClass="WorkoutTextView" customModule="WorkoutApp" customModuleProvider="target">
@@ -90,7 +87,6 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -100,7 +96,6 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -122,7 +117,6 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -145,14 +139,12 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pick a Workout Cycle" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ChU-8b-s0z">
                                 <rect key="frame" x="55" y="93" width="305" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -170,7 +162,7 @@
         <!--Custom Workouts View Controller-->
         <scene sceneID="91D-id-gYc">
             <objects>
-                <viewController id="5Ea-ov-kjY" customClass="CustomWorkoutsViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5Ea-ov-kjY" customClass="CustomWorkoutsViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3qU-Si-5kD"/>
                         <viewControllerLayoutGuide type="bottom" id="qX9-Gk-UlI"/>
@@ -182,7 +174,6 @@
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Custom Workouts" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocw-Ov-jZQ">
                                 <rect key="frame" x="54" y="43" width="305" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -230,7 +221,7 @@
         <!--Workout View Controller-->
         <scene sceneID="9CI-PB-xzP">
             <objects>
-                <viewController storyboardIdentifier="workoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ws1-kE-j3K" customClass="WorkoutViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="workoutViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ws1-kE-j3K" customClass="WorkoutViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cFC-CI-Ks7"/>
                         <viewControllerLayoutGuide type="bottom" id="b43-Zn-6Du"/>
@@ -245,7 +236,6 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -262,38 +252,38 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Exercise" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wyZ-3f-UG7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SetsAndReps" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gab-on-90g">
-                                                    <rect key="frame" x="150" y="0.0" width="60" height="44"/>
+                                                    <rect key="frame" x="151" y="0.0" width="60" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Previous Weight" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3wh-Sr-16k">
-                                                    <rect key="frame" x="209" y="0.0" width="60" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Weight" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coO-5d-xfj">
-                                                    <rect key="frame" x="268" y="0.0" width="60" height="44"/>
+                                                    <rect key="frame" x="210" y="0.0" width="60" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tav-Nj-ccB" userLabel="Delete Button">
-                                                    <rect key="frame" x="328" y="10" width="20" height="20"/>
+                                                    <rect key="frame" x="336" y="0.0" width="21" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="deleteButton.png"/>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Weight" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coO-5d-xfj">
+                                                    <rect key="frame" x="269" y="0.0" width="60" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -318,7 +308,6 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -374,7 +363,6 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -395,7 +383,6 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -476,12 +463,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tL-gL-deS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3270" y="244"/>
+            <point key="canvasLocation" x="3269.5652173913045" y="243.75000000000003"/>
         </scene>
         <!--Intermediate Workout Menu View Controller-->
         <scene sceneID="y7I-eM-rBE">
             <objects>
-                <viewController id="x7J-l0-3a5" customClass="IntermediateWorkoutMenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="x7J-l0-3a5" customClass="IntermediateWorkoutMenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3q-44-SSD"/>
                         <viewControllerLayoutGuide type="bottom" id="QxA-bu-wlh"/>
@@ -509,7 +496,6 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -532,14 +518,12 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pick an Intermediate Cycle" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwM-Ul-FMg">
                                 <rect key="frame" x="13" y="179" width="389" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -554,7 +538,7 @@
         <!--Toning Menu View Controller-->
         <scene sceneID="B2V-Gl-Aiv">
             <objects>
-                <viewController id="QbX-XF-ONp" customClass="ToningMenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="QbX-XF-ONp" customClass="ToningMenuViewController" customModule="WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ddz-QP-iyM"/>
                         <viewControllerLayoutGuide type="bottom" id="GoW-Cw-0S9"/>
@@ -582,7 +566,6 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -605,14 +588,12 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pick a Toning Cycle" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2R7-gL-KFr">
                                 <rect key="frame" x="13" y="179" width="389" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -629,13 +610,13 @@
     <resources>
         <image name="JacksonLogo.png" width="1001" height="499"/>
         <image name="StartButton.png" width="1001" height="499"/>
-        <image name="barbell-clipart-no-background-3.png" width="633" height="189"/>
-        <image name="deleteButton.png" width="807" height="800"/>
+        <image name="barbell-clipart-no-background-3.png" width="227.8800048828125" height="68"/>
+        <image name="deleteButton.png" width="116.67469787597656" height="115.66265106201172"/>
         <image name="workoutlogo2.png" width="1001" height="499"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="acZ-QW-cQ5"/>
-        <segue reference="yrF-8D-fiX"/>
+        <segue reference="NtP-rv-y2u"/>
         <segue reference="wJS-OE-CR1"/>
     </inferredMetricsTieBreakers>
 </document>

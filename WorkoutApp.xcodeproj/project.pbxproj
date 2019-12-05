@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62E5993320757AD1007F29DC /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993220757AD0007F29DC /* deleteButton.png */; };
+		62E5993520757AE5007F29DC /* JacksonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993420757AE5007F29DC /* JacksonLogo.png */; };
+		62E5993720757AEC007F29DC /* StartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993620757AEC007F29DC /* StartButton.png */; };
+		62E5993920757AF4007F29DC /* workoutlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993820757AF4007F29DC /* workoutlogo.png */; };
+		62E5993B20757AFA007F29DC /* workoutlogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993A20757AF9007F29DC /* workoutlogo2.png */; };
+		62E5993D20757B15007F29DC /* barbell-clipart-no-background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993C20757B15007F29DC /* barbell-clipart-no-background-3.png */; };
 		A51831F91F34DCD100D7D4C8 /* ExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51831F81F34DCD100D7D4C8 /* ExerciseViewCell.swift */; };
 		A525176A1F3DFEF900719EE7 /* CustomWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52517691F3DFEF900719EE7 /* CustomWorkoutsViewController.swift */; };
-		A525176C1F3E315F00719EE7 /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A525176B1F3E315F00719EE7 /* deleteButton.png */; };
 		A548BFFC206E917D00A2A27A /* ToningMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548BFFB206E917D00A2A27A /* ToningMenuViewController.swift */; };
 		A548E5111F475FE90014A52C /* WorkoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E5101F475FE90014A52C /* WorkoutButtonView.swift */; };
 		A548E5131F47627A0014A52C /* WorkoutDeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E5121F47627A0014A52C /* WorkoutDeleteButtonView.swift */; };
@@ -22,12 +27,7 @@
 		A54FCAE11F2BCFF1009A5A2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54FCADF1F2BCFF1009A5A2E /* LaunchScreen.storyboard */; };
 		A54FCAEC1F2BCFF1009A5A2E /* WorkoutAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FCAEB1F2BCFF1009A5A2E /* WorkoutAppTests.swift */; };
 		A54FCAF71F2BCFF1009A5A2E /* WorkoutAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FCAF61F2BCFF1009A5A2E /* WorkoutAppUITests.swift */; };
-		A54FCB081F2BD506009A5A2E /* workoutlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A54FCB071F2BD506009A5A2E /* workoutlogo.png */; };
-		A54FCB0C1F2BD71F009A5A2E /* JacksonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A54FCB0B1F2BD71F009A5A2E /* JacksonLogo.png */; };
-		A54FCB0E1F2BD86D009A5A2E /* workoutlogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A54FCB0D1F2BD86D009A5A2E /* workoutlogo2.png */; };
 		A54FCB101F2BD94A009A5A2E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FCB0F1F2BD94A009A5A2E /* MenuViewController.swift */; };
-		A54FCB141F2BDEA0009A5A2E /* barbell-clipart-no-background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A54FCB131F2BDEA0009A5A2E /* barbell-clipart-no-background-3.png */; };
-		A54FCB161F2BE3B8009A5A2E /* StartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A54FCB151F2BE3B8009A5A2E /* StartButton.png */; };
 		A54FCB181F2BE712009A5A2E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FCB171F2BE712009A5A2E /* WorkoutViewController.swift */; };
 		A56FAEC420094C8A00BA144E /* IntermediateWorkoutMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FAEC320094C8A00BA144E /* IntermediateWorkoutMenuViewController.swift */; };
 /* End PBXBuildFile section */
@@ -50,9 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62E5993220757AD0007F29DC /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteButton.png; sourceTree = "<group>"; };
+		62E5993420757AE5007F29DC /* JacksonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JacksonLogo.png; sourceTree = "<group>"; };
+		62E5993620757AEC007F29DC /* StartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartButton.png; sourceTree = "<group>"; };
+		62E5993820757AF4007F29DC /* workoutlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutlogo.png; sourceTree = "<group>"; };
+		62E5993A20757AF9007F29DC /* workoutlogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutlogo2.png; sourceTree = "<group>"; };
+		62E5993C20757B15007F29DC /* barbell-clipart-no-background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbell-clipart-no-background-3.png"; sourceTree = "<group>"; };
 		A51831F81F34DCD100D7D4C8 /* ExerciseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewCell.swift; sourceTree = "<group>"; };
 		A52517691F3DFEF900719EE7 /* CustomWorkoutsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWorkoutsViewController.swift; sourceTree = "<group>"; };
-		A525176B1F3E315F00719EE7 /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteButton.png; path = ../../../../../Documents/test_game/deleteButton.png; sourceTree = "<group>"; };
 		A548BFFB206E917D00A2A27A /* ToningMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToningMenuViewController.swift; sourceTree = "<group>"; };
 		A548E5101F475FE90014A52C /* WorkoutButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutButtonView.swift; sourceTree = "<group>"; };
 		A548E5121F47627A0014A52C /* WorkoutDeleteButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDeleteButtonView.swift; sourceTree = "<group>"; };
@@ -71,12 +76,7 @@
 		A54FCAF21F2BCFF1009A5A2E /* WorkoutAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54FCAF61F2BCFF1009A5A2E /* WorkoutAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAppUITests.swift; sourceTree = "<group>"; };
 		A54FCAF81F2BCFF1009A5A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A54FCB071F2BD506009A5A2E /* workoutlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workoutlogo.png; path = ../../../../../Documents/test_game/workoutlogo.png; sourceTree = "<group>"; };
-		A54FCB0B1F2BD71F009A5A2E /* JacksonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JacksonLogo.png; path = ../../../../../Documents/test_game/JacksonLogo.png; sourceTree = "<group>"; };
-		A54FCB0D1F2BD86D009A5A2E /* workoutlogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workoutlogo2.png; path = ../../../../../Documents/test_game/workoutlogo2.png; sourceTree = "<group>"; };
 		A54FCB0F1F2BD94A009A5A2E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		A54FCB131F2BDEA0009A5A2E /* barbell-clipart-no-background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "barbell-clipart-no-background-3.png"; path = "../../../../../Documents/test_game/barbell-clipart-no-background-3.png"; sourceTree = "<group>"; };
-		A54FCB151F2BE3B8009A5A2E /* StartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartButton.png; path = ../../../../../Documents/test_game/StartButton.png; sourceTree = "<group>"; };
 		A54FCB171F2BE712009A5A2E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		A56FAEC320094C8A00BA144E /* IntermediateWorkoutMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateWorkoutMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,12 +113,12 @@
 				A54FCAD61F2BCFF1009A5A2E /* AppDelegate.swift */,
 				A54FCADA1F2BCFF1009A5A2E /* Main.storyboard */,
 				A54FCADD1F2BCFF1009A5A2E /* Assets.xcassets */,
-				A525176B1F3E315F00719EE7 /* deleteButton.png */,
-				A54FCB151F2BE3B8009A5A2E /* StartButton.png */,
-				A54FCB131F2BDEA0009A5A2E /* barbell-clipart-no-background-3.png */,
-				A54FCB0B1F2BD71F009A5A2E /* JacksonLogo.png */,
-				A54FCB071F2BD506009A5A2E /* workoutlogo.png */,
-				A54FCB0D1F2BD86D009A5A2E /* workoutlogo2.png */,
+				62E5993220757AD0007F29DC /* deleteButton.png */,
+				62E5993620757AEC007F29DC /* StartButton.png */,
+				62E5993C20757B15007F29DC /* barbell-clipart-no-background-3.png */,
+				62E5993420757AE5007F29DC /* JacksonLogo.png */,
+				62E5993820757AF4007F29DC /* workoutlogo.png */,
+				62E5993A20757AF9007F29DC /* workoutlogo2.png */,
 				A54FCADF1F2BCFF1009A5A2E /* LaunchScreen.storyboard */,
 				A54FCAE21F2BCFF1009A5A2E /* Info.plist */,
 				A54FCAEA1F2BCFF1009A5A2E /* WorkoutAppTests */,
@@ -287,6 +287,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -308,14 +309,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54FCAE11F2BCFF1009A5A2E /* LaunchScreen.storyboard in Resources */,
-				A54FCB0C1F2BD71F009A5A2E /* JacksonLogo.png in Resources */,
-				A525176C1F3E315F00719EE7 /* deleteButton.png in Resources */,
+				62E5993320757AD1007F29DC /* deleteButton.png in Resources */,
 				A54FCADE1F2BCFF1009A5A2E /* Assets.xcassets in Resources */,
-				A54FCB081F2BD506009A5A2E /* workoutlogo.png in Resources */,
-				A54FCB161F2BE3B8009A5A2E /* StartButton.png in Resources */,
-				A54FCB141F2BDEA0009A5A2E /* barbell-clipart-no-background-3.png in Resources */,
+				62E5993720757AEC007F29DC /* StartButton.png in Resources */,
+				62E5993920757AF4007F29DC /* workoutlogo.png in Resources */,
+				62E5993520757AE5007F29DC /* JacksonLogo.png in Resources */,
+				62E5993D20757B15007F29DC /* barbell-clipart-no-background-3.png in Resources */,
 				A54FCADC1F2BCFF1009A5A2E /* Main.storyboard in Resources */,
-				A54FCB0E1F2BD86D009A5A2E /* workoutlogo2.png in Resources */,
+				62E5993B20757AFA007F29DC /* workoutlogo2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,12 +511,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3GPAVWYTJ;
 				INFOPLIST_FILE = WorkoutApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mjackson.WorkoutApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -528,12 +529,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3GPAVWYTJ;
 				INFOPLIST_FILE = WorkoutApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mjackson.WorkoutApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

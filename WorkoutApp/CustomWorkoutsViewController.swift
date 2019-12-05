@@ -56,7 +56,7 @@ class CustomWorkoutsViewController: UIViewController {
 
     }
     
-    func buttonAction(sender: WorkoutButtonView!) {
+    @objc func buttonAction(sender: WorkoutButtonView!) {
         performSegue(withIdentifier: "goToCustomWorkoutExercises", sender: sender)
     }
     
@@ -93,7 +93,7 @@ class CustomWorkoutsViewController: UIViewController {
         self.loadCustomButtons()
     }
     
-    func deleteButtonAction(sender: WorkoutDeleteButtonView!) {
+    @objc func deleteButtonAction(sender: WorkoutDeleteButtonView!) {
         let alert = UIAlertController(title: "Delete " + self.buttonToTextMap[self.buttonToDeleteButtonMap[sender]!]!.text! + "?", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
             let button = self.buttonToDeleteButtonMap[sender]!

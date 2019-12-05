@@ -165,6 +165,8 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        exerciseTableView.dataSource = self
+        
         self.autoFitButtonLabel(button: editExercisesButton)
         self.autoFitButtonLabel(button: saveExercisesButton)
         self.autoFitButtonLabel(button: backToMenuButton)
@@ -360,7 +362,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.addSubview(deleteTabButton)
     }
     
-    func loadTabWorkouts(sender: WorkoutButtonView) {
+    @objc func loadTabWorkouts(sender: WorkoutButtonView) {
         self.resetTabColor()
         sender.backgroundColor = UIColor.darkGray
         self.currentTab = sender
@@ -380,7 +382,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func deleteTabButtonAction(sender: UIButton) {
+    @objc func deleteTabButtonAction(sender: UIButton) {
         let tabToDeleteText = self.tabDeleteToTabMap[sender]?.titleLabel?.text
         let alert = UIAlertController(title: "Delete " + tabToDeleteText! + "?", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
@@ -449,7 +451,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func removeExercise(sender: UIButton!) {
+    @objc func removeExercise(sender: UIButton!) {
         let cell = sender.superview?.superview as? ExerciseViewCell
         var table = cell?.superview?.superview as? UITableView
         if table == nil {
@@ -514,7 +516,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.present(alert, animated: true, completion: nil)
     }
     
-    func keyboardWillShow(notification:NSNotification){
+    @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
         var userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
@@ -526,12 +528,12 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         exerciseTableView.scrollToNearestSelectedRow(at: UITableViewScrollPosition.middle, animated: true)
     }
     
-    func keyboardWillHide(notification:NSNotification){
+    @objc func keyboardWillHide(notification:NSNotification){
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         self.exerciseTableView.contentInset = contentInset
     }
     
-    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
+    @objc func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
         let state = longPress.state
         let locationInView = longPress.location(in: exerciseTableView)
