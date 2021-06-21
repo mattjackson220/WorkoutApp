@@ -68,5 +68,4 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
         defaultStorage.set(weight.text, forKey: buttonText + tabText + exercise.text + "Weight")
 
     }
-    
 }

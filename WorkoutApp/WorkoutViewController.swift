@@ -297,7 +297,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         if exerciseText != nil {
             let attributedString = NSMutableAttributedString(string: exerciseText!)
             let storedValue = defaultStorage.string(forKey: exerciseText!)
-            if storedValue != nil {
+            if (storedValue != nil && storedValue != "") {
                 let url = URL(string: storedValue!)
                 attributedString.setAttributes([.link: url], range: NSMakeRange(0, attributedString.length))
                 cell.exercise.attributedText = attributedString
@@ -323,13 +323,22 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             exerciseUrl.text = self.defaultStorage.string(forKey: (sender.titleLabel?.text!)!)
         })
         
+        let cell = sender.superview?.superview as? ExerciseViewCell
+        var table = cell?.superview?.superview as? UITableView
+        if table == nil {
+            table = cell?.superview as? UITableView
+        }
+        let index: Int! = table?.indexPath(for: cell!)?.row
+        
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
             let newExerciseName = alert.textFields![0].text
             let newExerciseUrl = alert.textFields![1].text
             
             self.defaultStorage.set(newExerciseUrl, forKey: (sender.titleLabel?.text!)!)
+            self.defaultStorage.set(newExerciseName, forKey: (self.buttonText + self.tabText + String(index + 1) + "ExerciseName"))
             
             self.loadTabWorkouts(sender: self.currentTab)
+            self.exerciseTableView.reloadData()
         } ))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
