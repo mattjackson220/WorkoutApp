@@ -357,7 +357,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         tabDeleteArray.append(deleteTabButton)
         
         tabDeleteToTabMap[deleteTabButton] = button
-        
+         
         self.view.addSubview(button)
         self.view.addSubview(deleteTabButton)
     }
