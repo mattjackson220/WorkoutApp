@@ -17,6 +17,7 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var setsAndReps: UITextView!
     
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var exerciseButton: UIButton!
     
     let defaultStorage = UserDefaults.standard
     
@@ -34,6 +35,10 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
         self.setBorderOnCells(cell: previousWeight)
         self.setBorderOnCells(cell: weight)
         self.setBorderOnCells(cell: setsAndReps)
+        
+        exerciseButton.layer.borderWidth = 1.0
+        exerciseButton.layer.borderColor = UIColor.black.cgColor
+        exerciseButton.layer.cornerRadius = 4;
         
         weight.delegate = self
 

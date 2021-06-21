@@ -58,8 +58,8 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         workoutWeekCounterText.isHidden = true
         
         for cell in cells {
-            cell.exercise.isUserInteractionEnabled = true
-            cell.exercise.backgroundColor = UIColor.lightGray
+            cell.exercise.isHidden = true
+            cell.exerciseButton.isHidden = false;
             cell.previousWeight.isUserInteractionEnabled = true
             cell.previousWeight.backgroundColor = UIColor.lightGray
             cell.weight.isUserInteractionEnabled = true
@@ -104,8 +104,8 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         editWeekInfoButton.isHidden = true
         
         for cell in cells {
-            cell.exercise.isUserInteractionEnabled = false
-            cell.exercise.backgroundColor = UIColor.white
+            cell.exercise.isHidden = false
+            cell.exerciseButton.isHidden = true;
             cell.previousWeight.isUserInteractionEnabled = false
             cell.previousWeight.backgroundColor = UIColor.white
             cell.weight.backgroundColor = UIColor.white
@@ -308,7 +308,32 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.exercise.text = exerciseText
         cell.exercise.textAlignment = NSTextAlignment.center
+        
+        cell.exerciseButton.setTitle(cell.exercise.text, for: .normal)
+        cell.exerciseButton.addTarget(self, action: #selector(self.editExerciseInfo), for: .touchDown)
         return cell
+    }
+    
+    @objc func editExerciseInfo(sender: UIButton) {
+        let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField(configurationHandler: {(exerciseName: UITextField!) in
+            exerciseName.text = sender.titleLabel?.text
+        })
+        alert.addTextField(configurationHandler: {(exerciseUrl: UITextField!) in
+            exerciseUrl.text = self.defaultStorage.string(forKey: (sender.titleLabel?.text!)!)
+        })
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
+            let newExerciseName = alert.textFields![0].text
+            let newExerciseUrl = alert.textFields![1].text
+            
+            self.defaultStorage.set(newExerciseUrl, forKey: (sender.titleLabel?.text!)!)
+            
+            self.loadTabWorkouts(sender: self.currentTab)
+        } ))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
