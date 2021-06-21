@@ -24,6 +24,7 @@ class CustomWorkoutsViewController: UIViewController {
     var buttonToDeleteButtonMap = [WorkoutDeleteButtonView:WorkoutButtonView]()
     var buttonToTextMap = [WorkoutButtonView:WorkoutTextView]()
     var yValueAdjustment: Int!
+    var secondAlert: UIAlertController!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,24 +140,27 @@ class CustomWorkoutsViewController: UIViewController {
             let workoutName = workoutNameTextField.text!
             let workoutCyclesCount = Int(workoutCyclesCountTextField.text!)
             
-            let secondAlert = UIAlertController(title: "Create Tabs for " + workoutName, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+            self.secondAlert = UIAlertController(title: "Create Tabs for " + workoutName, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
 
             if let workoutTabCount = Int(workoutTabCountTextField.text!) {
                 for index in 1...workoutTabCount {
-                    secondAlert.addTextField(configurationHandler: {(workoutTabName: UITextField!) in
+                    self.secondAlert.addTextField(configurationHandler: {(workoutTabName: UITextField!) in
                         workoutTabName.placeholder = "Enter name for tab " + String(index) + ": "
+                        workoutTabName.addTarget(self, action: #selector(self.validateFields), for: .editingChanged)
                     })
-                    secondAlert.addTextField(configurationHandler: {(workoutTabExerciseCount: UITextField!) in
+                    self.secondAlert.addTextField(configurationHandler: {(workoutTabExerciseCount: UITextField!) in
                         workoutTabExerciseCount.placeholder = "Enter number of exercises for tab " + String(index) + ": "
+                        workoutTabExerciseCount.addTarget(self, action: #selector(self.validateFields), for: .editingChanged)
                     })
+                    
                 }
             }
             
-            secondAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
                 var tabString = ""
                 var firstTab = ""
-                for field in secondAlert.textFields! {
-                    let index = secondAlert.textFields?.index(of: field)
+                for field in self.secondAlert.textFields! {
+                    let index = self.secondAlert.textFields?.index(of: field)
                     if index! % 2 == 0 {
                         let tabName = field.text!
                         firstTab = firstTab.isEmpty ? tabName : firstTab
@@ -165,14 +169,16 @@ class CustomWorkoutsViewController: UIViewController {
                         self.defaultStorage.set(workoutCyclesCount, forKey: workoutName + tabName + "WorkoutWeekMax")
                     } else {
                         let tabExerciseCount = Int(field.text!)
-                        self.defaultStorage.set(tabExerciseCount, forKey: workoutName + secondAlert.textFields![index! - 1].text! + "ExerciseCount")
+                        self.defaultStorage.set(tabExerciseCount, forKey: workoutName + self.secondAlert.textFields![index! - 1].text! + "ExerciseCount")
                     }
                 }
                 self.defaultStorage.set(tabString, forKey: workoutName + "TabString")
                 self.defaultStorage.set(firstTab, forKey: workoutName + "FirstTab")
-            }))
+            })
+            okButton.isEnabled = false;
+            self.secondAlert.addAction(okButton);
 
-            self.present(secondAlert, animated: true, completion: nil)
+            self.present(self.secondAlert, animated: true, completion: nil)
             
             self.newButtonText = workoutName
             let button = WorkoutButtonView(frame: CGRect(x: 50, y: yValue, width: Int(self.view.frame.size.width - 150), height: self.yValueAdjustment - 10))
@@ -249,4 +255,14 @@ class CustomWorkoutsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc
+    func validateFields(sender: UITextField!) {
+        var valid = true
+        for field in self.secondAlert.textFields! {
+            if (!field.hasText) {
+                valid = false
+            }
+        }
+        self.secondAlert.actions[0].isEnabled = valid
+    }
 }
