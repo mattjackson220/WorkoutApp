@@ -38,6 +38,8 @@ class LogoViewController: UIViewController {
     var intExercises15Map = [String:[String:String]]()
     var intExercises12Map = [String:[String:String]]()
     
+    var helpLinkMap = [String:String]()
+    
     var tabString = ""
     let defaultStorage = UserDefaults.standard
     
@@ -159,6 +161,15 @@ class LogoViewController: UIViewController {
             defaultStorage.set(tabString, forKey: "Int12TabString")
         }
         
+        let helpLinkBeenInitialized = defaultStorage.bool(forKey: "helpLink_1")
+        if (!helpLinkBeenInitialized) {
+            self.loadHelpLinks()
+            for help in self.helpLinkMap {
+                defaultStorage.set(help.value, forKey: help.key)
+            }
+            defaultStorage.set(true, forKey: "helpLink_1")
+        }
+        
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -199,6 +210,10 @@ class LogoViewController: UIViewController {
         defaultStorage.set(exerciseList.count, forKey: exerciseTitle + tabTitle + "ExerciseCount")
         defaultStorage.set(weekCount, forKey: exerciseTitle + tabTitle + "WorkoutWeekMax")
         defaultStorage.set(1, forKey: exerciseTitle + tabTitle + "WorkoutWeekCount")
+    }
+    
+    func loadHelpLinks() {
+        helpLinkMap["Bench"] = "https://www.youtube.com/watch?v=gRVjAtPip0Y"
     }
     
     func loadDefaultWorkoutMaps() {
@@ -353,7 +368,6 @@ class LogoViewController: UIViewController {
         intShoulders12Map["Handstand Pushups"] = "3 x 12"
 
     }
-
 
 }
 

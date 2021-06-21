@@ -8,10 +8,16 @@
 
 struct TableRowObject {
     let exerciseName, previousWeight, weight, setsAndReps: String
+    var helpLink: String
     init(exerciseName: String, previousWeight: String, weight: String, setsAndReps: String) {
         self.exerciseName   = exerciseName
         self.previousWeight = previousWeight
         self.weight  = weight
         self.setsAndReps = setsAndReps
+        self.helpLink = ""
+    }
+    
+    mutating func addHelp(help: String) {
+        self.helpLink = help
     }
 }

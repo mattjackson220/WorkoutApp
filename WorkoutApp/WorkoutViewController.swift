@@ -281,17 +281,33 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         let reuseID = "exerciseViewCell"
     
         let cell: ExerciseViewCell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! ExerciseViewCell
-        cell.exercise.text = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
+        
         cell.setsAndReps.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "SetsAndReps")
         cell.previousWeight.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "PreviousWeight")
         cell.weight.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "Weight")
+        
         if isInEditMode {
             cell.deleteButton.isHidden = false
         } else {
             cell.deleteButton.isHidden = true
         }
         cell.deleteButton.addTarget(self, action: #selector(self.removeExercise), for: .touchUpInside)
-
+               
+        let exerciseText = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
+        if exerciseText != nil {
+            let attributedString = NSMutableAttributedString(string: exerciseText!)
+            let storedValue = defaultStorage.string(forKey: exerciseText!)
+            if storedValue != nil {
+                let url = URL(string: storedValue!)
+                attributedString.setAttributes([.link: url], range: NSMakeRange(0, attributedString.length))
+                cell.exercise.attributedText = attributedString
+                cell.exercise.isUserInteractionEnabled = true
+            }
+        } else {
+            cell.exercise.attributedText = NSMutableAttributedString(string: "")
+        }
+        cell.exercise.text = exerciseText
+        cell.exercise.textAlignment = NSTextAlignment.center
         return cell
     }
     
