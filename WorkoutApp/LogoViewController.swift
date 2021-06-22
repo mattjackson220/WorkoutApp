@@ -47,9 +47,9 @@ class LogoViewController: UIViewController {
         super.viewDidLoad()
         
         //delete all history
-//        if let bundle = Bundle.main.bundleIdentifier {
-//            UserDefaults.standard.removePersistentDomain(forName: bundle)
-//        }
+        if let bundle = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundle)
+        }
         
         self.loadDefaultWorkoutMaps()
         
@@ -213,12 +213,47 @@ class LogoViewController: UIViewController {
     }
     
     func loadHelpLinks() {
+        // chest and triceps
         helpLinkMap["Bench"] = "https://www.youtube.com/watch?v=gRVjAtPip0Y"
+        helpLinkMap["DB Incline"] = "https://www.youtube.com/watch?v=07Bcqtib4FM"
+        helpLinkMap["Cable Fly"] = "https://www.youtube.com/watch?v=ETtXO4FW1EU"
+        helpLinkMap["Close Grip Bench"] = "https://www.youtube.com/watch?v=k8dmJBFfAu8"
+        helpLinkMap["Skull Crushers"] = "https://www.youtube.com/watch?v=d_KZxkY_0cM"
+        helpLinkMap["Overhead Tri Extensions"] = "https://www.youtube.com/watch?v=nRiJVZDpdL0"
+        
+        // back and biceps
+        helpLinkMap["Lat Pulldowns"] = "https://www.google.com/search?q=youtube+how+to+do+lat+pulldowns&oq=youtube+how+to+do+lat+pulldowns&aqs=chrome..69i57j69i64.5883j0j4&sourceid=chrome&ie=UTF-8#kpvalbx=_L_3RYL3EC8zj-gSs84Qo25"
+        helpLinkMap["Bent DB Rows"] = "https://www.youtube.com/watch?v=QFq5jdwWwX4"
+        helpLinkMap["Rear Delt Flys"] = "https://www.youtube.com/watch?v=0GSu6Z-Oj7U"
+        helpLinkMap["Seated Rows"] = "https://www.youtube.com/watch?v=xQNrFHEMhI4"
+        helpLinkMap["Seated High Rows"] = "https://www.youtube.com/watch?v=PLYE3TrXO9o"
+        helpLinkMap["Strive Curls"] = "https://www.youtube.com/watch?v=duKSupD94Rc"
+        helpLinkMap["Hammer Curls"] = "https://www.youtube.com/watch?v=P5sXHLmXmBM"
+        helpLinkMap["Deadlift"] = "https://www.youtube.com/watch?v=ytGaGIn3SjE"
+        helpLinkMap["Rack Chins"] = "https://www.youtube.com/watch?v=vcWleBeSjes"
+        helpLinkMap["Underhand Lat Pulldowns"] = "https://www.youtube.com/watch?v=PPVJb5d1nWY"
+        helpLinkMap["DB Rows"] = "https://www.youtube.com/watch?v=roCP6wCXPqo"
+        helpLinkMap["Incline DB Curls"] = "https://www.youtube.com/watch?v=b4jOP-spQW8"
+        helpLinkMap["DB Preacher Curls"] = "https://www.youtube.com/watch?v=DoCWeUBA0Gs"
+        helpLinkMap["Barbell Curls"] = "https://www.youtube.com/watch?v=kwG2ipFRgfo"
+        helpLinkMap["Pinwheel Curls"] = "https://www.youtube.com/watch?v=ADE3aBSwVUo"
+        
+        // legs
+        helpLinkMap["Squats"] = "https://www.youtube.com/watch?v=MVMNk0HiTMg"
+        helpLinkMap["Leg Press"] = "https://www.youtube.com/watch?v=UYdx6ammdwU"
+        helpLinkMap["Leg Extension"] = "https://www.youtube.com/watch?v=YyvSfVjQeL0"
+        helpLinkMap["Hamstring Curls"] = "https://www.youtube.com/watch?v=F488k67BTNo"
+        helpLinkMap["Stiff Leg Deadlifts"] = "https://www.youtube.com/watch?v=1uDiW5--rAE"
+        
+        // shoulders
+        helpLinkMap["Shoulder Press"] = "https://www.youtube.com/watch?v=Wqq43dKW1TU"
+        helpLinkMap["Lateral Raise"] = "https://www.youtube.com/watch?v=kDqklk1ZESo"
+        helpLinkMap["DB Military Press"] = "https://www.youtube.com/watch?v=B-aVuyhvLHU"
     }
     
     func loadDefaultWorkoutMaps() {
         // toning, bulking, and int back and biceps
-        toningBackAndBicepsMap["Lat Pull Downs"] = "1 x 100"
+        toningBackAndBicepsMap["Lat Pulldowns"] = "1 x 100"
         toningBackAndBicepsMap["Bent DB Rows"] = "3 x 25,20,15"
         toningBackAndBicepsMap["Rear Delt Flys"] = "1 x 100"
         toningBackAndBicepsMap["Seated Rows"] = "3 x 25,20,15"
@@ -226,7 +261,7 @@ class LogoViewController: UIViewController {
         toningBackAndBicepsMap["Strive Curls"] = "3 x 25,20,15"
         toningBackAndBicepsMap["Hammer Curls"] = "1 x 100"
         
-        toningBackAndBicepsMap2["Lat Pull Downs"] = "3 x 25,20,15"
+        toningBackAndBicepsMap2["Lat Pulldowns"] = "3 x 25,20,15"
         toningBackAndBicepsMap2["Bent DB Rows"] = "1 x 100"
         toningBackAndBicepsMap2["Rear Delt Flys"] = "3 x 25,20,15"
         toningBackAndBicepsMap2["Seated Rows"] = "1 x 100"
@@ -282,14 +317,14 @@ class LogoViewController: UIViewController {
         bulkingChestAndTricepsMap["Incline Flies"] = "3 x 8"
         bulkingChestAndTricepsMap["Cable Flies (ground up)"] = "3 x 8"
         bulkingChestAndTricepsMap["PJR Pullovers"] = "3 x 8"
-        bulkingChestAndTricepsMap["Dead-Stop Skull Crushers"] = "3 x 8"
+        bulkingChestAndTricepsMap["Skull Crushers"] = "3 x 8"
         bulkingChestAndTricepsMap["Close Grip Bench"] = "3 x 8"
         bulkingChestAndTricepsMap["Overhead Tri Extensions"] = "3 x 8"
         
         intChestAndTriceps15Map["DB Bench"] = "3 x 15"
         intChestAndTriceps15Map["Incline Bench"] = "3 x 15"
         intChestAndTriceps15Map["Incline Fly"] = "3 x 15"
-        intChestAndTriceps15Map["Close Bench"] = "3 x 15"
+        intChestAndTriceps15Map["Close Grip Bench"] = "3 x 15"
         intChestAndTriceps15Map["Palm Down Tri"] = "3 x 15"
         intChestAndTriceps15Map["Palm Up Tri"] = "3 x 15"
         intChestAndTriceps15Map["Skull Crushers"] = "3 x 15"
@@ -297,7 +332,7 @@ class LogoViewController: UIViewController {
         intChestAndTriceps12Map["Bench"] = "3 x 12"
         intChestAndTriceps12Map["DB Incline"] = "3 x 12"
         intChestAndTriceps12Map["Cable Fly"] = "3 x 12"
-        intChestAndTriceps12Map["Close Bench"] = "3 x 12"
+        intChestAndTriceps12Map["Close Grip Bench"] = "3 x 12"
         intChestAndTriceps12Map["Palm Down Tri"] = "3 x 12"
         intChestAndTriceps12Map["Palm Up Tri"] = "3 x 12"
         intChestAndTriceps12Map["Skull Crushers"] = "3 x 12"
