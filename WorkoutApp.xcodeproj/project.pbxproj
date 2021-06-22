@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		625197C32682642800C6B912 /* ArmFlex.png in Resources */ = {isa = PBXBuildFile; fileRef = 625197C22682642800C6B912 /* ArmFlex.png */; };
 		62E5993320757AD1007F29DC /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993220757AD0007F29DC /* deleteButton.png */; };
 		62E5993520757AE5007F29DC /* JacksonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993420757AE5007F29DC /* JacksonLogo.png */; };
 		62E5993720757AEC007F29DC /* StartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E5993620757AEC007F29DC /* StartButton.png */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		625197C22682642800C6B912 /* ArmFlex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArmFlex.png; sourceTree = "<group>"; };
 		62E5993220757AD0007F29DC /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteButton.png; sourceTree = "<group>"; };
 		62E5993420757AE5007F29DC /* JacksonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JacksonLogo.png; sourceTree = "<group>"; };
 		62E5993620757AEC007F29DC /* StartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartButton.png; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				62E5993220757AD0007F29DC /* deleteButton.png */,
 				62E5993620757AEC007F29DC /* StartButton.png */,
 				62E5993C20757B15007F29DC /* barbell-clipart-no-background-3.png */,
+				625197C22682642800C6B912 /* ArmFlex.png */,
 				62E5993420757AE5007F29DC /* JacksonLogo.png */,
 				62E5993820757AF4007F29DC /* workoutlogo.png */,
 				62E5993A20757AF9007F29DC /* workoutlogo2.png */,
@@ -317,6 +320,7 @@
 				62E5993D20757B15007F29DC /* barbell-clipart-no-background-3.png in Resources */,
 				A54FCADC1F2BCFF1009A5A2E /* Main.storyboard in Resources */,
 				62E5993B20757AFA007F29DC /* workoutlogo2.png in Resources */,
+				625197C32682642800C6B912 /* ArmFlex.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
