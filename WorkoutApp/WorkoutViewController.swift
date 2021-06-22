@@ -326,10 +326,20 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func editExerciseInfo(sender: UIButton) {
         let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField(configurationHandler: {(exerciseName: UITextField!) in
-            exerciseName.text = sender.titleLabel?.text
+            let senderText = sender.titleLabel?.text
+            if senderText != nil && senderText != "" {
+                exerciseName.text = senderText
+            } else {
+                exerciseName.placeholder = "Enter exercise name"
+            }
         })
         alert.addTextField(configurationHandler: {(exerciseUrl: UITextField!) in
-            exerciseUrl.text = self.defaultStorage.string(forKey: (sender.titleLabel?.text!)!)
+            let url = self.defaultStorage.string(forKey: (sender.titleLabel?.text!)!)
+            if url != nil && url != "" {
+                exerciseUrl.text = url
+            } else {
+                exerciseUrl.placeholder = "Enter a URL for a help link"
+            }
         })
         
         let cell = sender.superview?.superview as? ExerciseViewCell
@@ -343,7 +353,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             let newExerciseName = alert.textFields![0].text
             let newExerciseUrl = alert.textFields![1].text
             
-            self.defaultStorage.set(newExerciseUrl, forKey: (sender.titleLabel?.text!)!)
+            self.defaultStorage.set(newExerciseUrl, forKey: newExerciseName!)
             self.defaultStorage.set(newExerciseName, forKey: (self.buttonText + self.tabText + String(index + 1) + "ExerciseName"))
             
             self.loadTabWorkouts(sender: self.currentTab)
