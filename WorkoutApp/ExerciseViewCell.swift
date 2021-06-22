@@ -66,6 +66,13 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
         let buttonText = defaultStorage.object(forKey: "buttonText") as! String
         let tabText = defaultStorage.object(forKey: "tabText") as! String
         defaultStorage.set(weight.text, forKey: buttonText + tabText + exercise.text + "Weight")
-
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let weightInt:Int = Int(weight.text), let prevWeightInt:Int = Int(previousWeight.text) {
+            if (weightInt > prevWeightInt) {
+                (self.next?.next?.next as? WorkoutViewController)!.showIncreasedWeightMessage()
+            }
+        }
     }
 }

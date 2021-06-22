@@ -50,13 +50,15 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     var hideCellAllowed: Bool! = false
     var currentTab: WorkoutButtonView!
     
+    var popup: UIView!
+    
     @IBAction func editExercisesButtonClicked(_ sender: Any) {
         let cells = self.exerciseTableView.visibleCells as! Array<ExerciseViewCell>
         isInEditMode = true
-        
+
         editWeekInfoButton.isHidden = false
         workoutWeekCounterText.isHidden = true
-        
+
         for cell in cells {
             cell.exercise.isHidden = true
             cell.exerciseButton.isHidden = false;
@@ -68,16 +70,16 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.setsAndReps.backgroundColor = UIColor.lightGray
             cell.deleteButton.isHidden = false
         }
-        
+
         for deleteTabButton in tabDeleteArray {
             deleteTabButton.isHidden = false
             deleteTabButton.superview?.bringSubview(toFront: deleteTabButton)
         }
-        
+
         newTabButton.isHidden = false
-        
+
         addNewExerciseButton.isHidden = false
-        
+
         editExercisesButton.isHidden = true
         saveExercisesButton.isHidden = false
     }
@@ -768,6 +770,41 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     func resetTabColor() {
         for tab in tabArray {
             tab.backgroundColor = UIColor.lightGray
+        }
+    }
+    
+    func showIncreasedWeightMessage() {
+        popup = UIView(frame: self.view.frame)
+        self.view.addSubview(popup)
+
+        let imageView = UIImageView(frame: CGRect(x: popup.center.x - 150, y: popup.center.y - 150, width:400, height:300))
+        imageView.center = popup.center
+        imageView.image = UIImage(named: "ArmFlex")
+    
+        let label = UILabel(frame: CGRect(x: popup.center.x - 150, y: popup.center.y + 160, width:300, height:50))
+        label.text="Congratulations!"
+        label.textAlignment = NSTextAlignment.center
+        label.adjustsFontSizeToFitWidth = true
+        label.font = label.font.withSize(40)
+            
+        let label2 = UILabel(frame: CGRect(x: popup.center.x - 150, y: popup.center.y + 160 + 60, width:300, height:30))
+        label2.text="You got even stronger!"
+        label2.textAlignment = NSTextAlignment.center
+        label2.adjustsFontSizeToFitWidth = true
+    
+        popup.addSubview(imageView)
+        popup.addSubview(label)
+        popup.addSubview(label2)
+        popup.backgroundColor = UIColor.white
+    
+        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.dismissAlert), userInfo: nil, repeats: false)
+    
+    }
+    
+    @objc
+    func dismissAlert(){
+        if popup != nil { // Dismiss the view from here
+            popup.removeFromSuperview()
         }
     }
         
