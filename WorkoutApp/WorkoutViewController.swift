@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
@@ -51,6 +53,10 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     var currentTab: WorkoutButtonView!
     
     var popup: UIView!
+    var helpLinkView: UIView!
+    var visualEffectView: UIVisualEffectView!
+    var backButton: UIButton!
+    var helpLinkPlayerWebView: UIWebView!
     
     @IBAction func editExercisesButtonClicked(_ sender: Any) {
         let cells = self.exerciseTableView.visibleCells as! Array<ExerciseViewCell>
@@ -305,6 +311,12 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.exercise.isUserInteractionEnabled = false
             exerciseText = ""
         }
+        
+        let helpLinkButton = UIButton(frame: cell.exercise.frame)
+        cell.addSubview(helpLinkButton)
+        helpLinkButton.setAttributedTitle(attributedString, for: .normal)
+        helpLinkButton.addTarget(self, action: #selector(self.showHelpLink), for: .touchDown)
+        
         cell.exercise.text = exerciseText
         cell.exercise.textAlignment = NSTextAlignment.center
         
@@ -806,6 +818,65 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         if popup != nil { // Dismiss the view from here
             popup.removeFromSuperview()
         }
+    }
+    
+    func blurBackground() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        self.visualEffectView = UIVisualEffectView(frame: self.view.frame)
+        self.visualEffectView.effect = blurEffect
+        
+        self.view.addSubview(visualEffectView)
+    }
+    
+    func unBlurBackground() {
+        self.visualEffectView.removeFromSuperview()
+    }
+    
+    @objc func showHelpLink(sender: UIButton) {
+        self.blurBackground()
+        self.helpLinkView = UIView(frame: CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 200))
+        self.view.addSubview(self.helpLinkView)
+        
+        self.helpLinkView.isUserInteractionEnabled = true
+        
+        self.backButton = UIButton(frame: CGRect(x: 50, y: 50, width: 100, height: 50))
+        self.backButton.addTarget(self, action: #selector(self.hideHelpLink), for: .touchDown)
+        self.backButton.backgroundColor = UIColor.systemBlue
+        self.backButton.titleLabel?.textAlignment = NSTextAlignment.center
+        
+        self.backButton.layer.cornerRadius = 8
+        self.autoFitButtonLabel(button: self.backButton)
+        self.backButton.setTitle("Back", for: .normal)
+        self.backButton.setTitleColor(UIColor.black, for: .normal)
+        self.backButton.titleLabel?.font = self.backButton.titleLabel?.font.withSize(15)
+        
+        self.view.addSubview(self.backButton)
+        
+        self.playHelpLink(attrTitle: sender.attributedTitle(for: .normal)!)
+    }
+    
+    @objc func hideHelpLink(sender: UIButton) {
+        self.unBlurBackground()
+        self.helpLinkView.removeFromSuperview()
+        self.backButton.removeFromSuperview()
+        self.helpLinkPlayerWebView.removeFromSuperview()
+    }
+    
+    func playHelpLink(attrTitle: NSAttributedString) {
+        guard
+            let url = attrTitle.attribute(.link, at: 1, effectiveRange: nil)
+            else { return }
+        
+        var urlString = (url as! URL).absoluteString
+        urlString = urlString.replacingOccurrences(of: "watch?v=", with: "embed/")
+        
+        self.helpLinkPlayerWebView = UIWebView(frame: self.helpLinkView.frame)
+        self.helpLinkPlayerWebView.center = self.helpLinkView.center
+        self.helpLinkPlayerWebView.loadRequest(URLRequest(url: URL(string: urlString)!))
+        self.helpLinkPlayerWebView.isUserInteractionEnabled = true
+        
+        self.helpLinkView.addSubview(self.helpLinkPlayerWebView)
+        
     }
         
 }
