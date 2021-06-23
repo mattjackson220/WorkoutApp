@@ -253,13 +253,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Exercise" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wyZ-3f-UG7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EPs-aJ-ow5" userLabel="Excercise Button">
                                                     <rect key="frame" x="0.0" y="0.0" width="151" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -299,7 +292,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="deleteButton" destination="Tav-Nj-ccB" id="I7u-B4-Vlt"/>
-                                            <outlet property="exercise" destination="wyZ-3f-UG7" id="HEB-1P-ce5"/>
                                             <outlet property="exerciseButton" destination="EPs-aJ-ow5" id="8Vd-3F-8KX"/>
                                             <outlet property="previousWeight" destination="3wh-Sr-16k" id="1TK-5L-GX6"/>
                                             <outlet property="setsAndReps" destination="Gab-on-90g" id="873-ju-4hX"/>
