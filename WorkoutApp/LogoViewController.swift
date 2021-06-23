@@ -47,9 +47,9 @@ class LogoViewController: UIViewController {
         super.viewDidLoad()
         
         //delete all history
-//        if let bundle = Bundle.main.bundleIdentifier {
-//            UserDefaults.standard.removePersistentDomain(forName: bundle)
-//        }
+        if let bundle = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundle)
+        }
         
         self.loadDefaultWorkoutMaps()
         

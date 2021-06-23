@@ -66,8 +66,6 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         workoutWeekCounterText.isHidden = true
 
         for cell in cells {
-            cell.exercise.isHidden = true
-            cell.exerciseButton.isHidden = false;
             cell.previousWeight.isUserInteractionEnabled = true
             cell.previousWeight.backgroundColor = UIColor.lightGray
             cell.weight.isUserInteractionEnabled = true
@@ -112,18 +110,18 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         editWeekInfoButton.isHidden = true
         
         for cell in cells {
-            cell.exercise.isHidden = false
-            cell.exerciseButton.isHidden = true;
             cell.previousWeight.isUserInteractionEnabled = false
             cell.previousWeight.backgroundColor = UIColor.white
             cell.weight.backgroundColor = UIColor.white
             cell.setsAndReps.isUserInteractionEnabled = false
             cell.setsAndReps.backgroundColor = UIColor.white
             
-            defaultStorage.set(cell.exercise.text, forKey: buttonText + tabText + String(i) + "ExerciseName")
-            defaultStorage.set(cell.setsAndReps.text, forKey: buttonText + tabText + cell.exercise.text + "SetsAndReps")
-            defaultStorage.set(cell.previousWeight.text, forKey: buttonText + tabText + cell.exercise.text + "PreviousWeight")
-            defaultStorage.set(cell.weight.text, forKey: buttonText + tabText + cell.exercise.text + "Weight")
+            let cellExerciseTitle = cell.exerciseButton.title(for: .normal)!
+            
+            defaultStorage.set(cellExerciseTitle, forKey: buttonText + tabText + String(i) + "ExerciseName")
+            defaultStorage.set(cell.setsAndReps.text, forKey: buttonText + tabText + cellExerciseTitle + "SetsAndReps")
+            defaultStorage.set(cell.previousWeight.text, forKey: buttonText + tabText + cellExerciseTitle + "PreviousWeight")
+            defaultStorage.set(cell.weight.text, forKey: buttonText + tabText + cellExerciseTitle + "Weight")
             
             i += 1
         }
@@ -290,7 +288,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         let cell: ExerciseViewCell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! ExerciseViewCell
         
-        var exerciseText = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
+        let exerciseText = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
         var attributedString = NSMutableAttributedString(string: "")
         if exerciseText != nil {
             attributedString = NSMutableAttributedString(string: exerciseText!)
@@ -299,30 +297,21 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (storedValue != nil && storedValue != "") {
                 let url = URL(string: storedValue!)
                 attributedString.setAttributes([.link: url], range: NSMakeRange(0, attributedString.length))
-                cell.exercise.attributedText = attributedString
-                cell.exercise.isUserInteractionEnabled = true
             } else {
                 attributedString = NSMutableAttributedString(string: exerciseText!)
-                cell.exercise.attributedText = attributedString
-                cell.exercise.isUserInteractionEnabled = false
             }
-        } else {
-            cell.exercise.attributedText = attributedString
-            cell.exercise.isUserInteractionEnabled = false
-            exerciseText = ""
         }
         
-        let helpLinkButton = UIButton(frame: cell.exercise.frame)
-        cell.addSubview(helpLinkButton)
-        helpLinkButton.setAttributedTitle(attributedString, for: .normal)
-        helpLinkButton.addTarget(self, action: #selector(self.showHelpLink), for: .touchDown)
+        cell.exerciseButton.setTitle(exerciseText, for: .normal)
         
-        cell.exercise.text = exerciseText
-        cell.exercise.textAlignment = NSTextAlignment.center
-        
-        cell.setsAndReps.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "SetsAndReps")
-        cell.previousWeight.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "PreviousWeight")
-        cell.weight.text = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "Weight")
+//        let helpLinkButton = UIButton(frame: cell.exercise.frame)
+//        cell.addSubview(helpLinkButton)
+//        helpLinkButton.setAttributedTitle(attributedString, for: .normal)
+//        helpLinkButton.addTarget(self, action: #selector(self.showHelpLink), for: .touchDown)
+                
+        cell.setsAndReps.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "SetsAndReps")
+        cell.previousWeight.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "PreviousWeight")
+        cell.weight.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "Weight")
         
         if isInEditMode {
             cell.deleteButton.isHidden = false
@@ -331,13 +320,21 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.deleteButton.addTarget(self, action: #selector(self.removeExercise), for: .touchUpInside)
         
-        cell.exerciseButton.setTitle(cell.exercise.text, for: .normal)
-        cell.exerciseButton.addTarget(self, action: #selector(self.editExerciseInfo), for: .touchDown)
+        cell.exerciseButton.setAttributedTitle(attributedString, for: .normal)
+        cell.exerciseButton.addTarget(self, action: #selector(self.exerciseButtonClicked), for: .touchDown)
         
         return cell
     }
     
-    @objc func editExerciseInfo(sender: UIButton) {
+    @objc func exerciseButtonClicked(sender: UIButton) {
+        if isInEditMode {
+            self.editExerciseInfo(sender: sender)
+        } else {
+            self.showHelpLink(sender: sender)
+        }
+    }
+    
+    func editExerciseInfo(sender: UIButton) {
         let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField(configurationHandler: {(exerciseName: UITextField!) in
             let senderText = sender.titleLabel?.text
@@ -511,15 +508,16 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func updateForDateChange(cell: ExerciseViewCell) {
-        let newPreviousWeightText = defaultStorage.string(forKey: buttonText + tabText + cell.exercise.text + "Weight")
+        let exerciseText = cell.exerciseButton.title(for: .normal)!
+        let newPreviousWeightText = defaultStorage.string(forKey: buttonText + tabText + exerciseText + "Weight")
         var weightsUpdated: Bool = false
         if (!((newPreviousWeightText?.isEmpty)!) && ((newPreviousWeightText != nil))) {
             cell.previousWeight.text = newPreviousWeightText
-            defaultStorage.set(newPreviousWeightText, forKey: buttonText + tabText + cell.exercise.text + "PreviousWeight")
+            defaultStorage.set(newPreviousWeightText, forKey: buttonText + tabText + exerciseText + "PreviousWeight")
             weightsUpdated = true
         }
         cell.weight.text = ""
-        defaultStorage.set("", forKey: buttonText + tabText + cell.exercise.text + "Weight")
+        defaultStorage.set("", forKey: buttonText + tabText + exerciseText + "Weight")
         let weekHasBeenUpdated = self.defaultStorage.bool(forKey: buttonText + tabText + "WeekHasBeenUpdated")
         
         if weightsUpdated && !weekHasBeenUpdated {
@@ -565,8 +563,6 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         isInEditMode = true
         
         for cell in cells {
-            cell.exercise.isUserInteractionEnabled = false
-            cell.exercise.backgroundColor = UIColor.white
             cell.previousWeight.isUserInteractionEnabled = false
             cell.previousWeight.backgroundColor = UIColor.white
             cell.weight.isUserInteractionEnabled = false
@@ -701,7 +697,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cells = self.exerciseTableView.visibleCells as! Array<ExerciseViewCell>
         for cell in cells {
             let index = exerciseTableView.indexPath(for: cell)?.row
-            defaultStorage.set(cell.exercise.text, forKey: buttonText + tabText + String(index! + 1) + "ExerciseName")
+            defaultStorage.set(cell.exerciseButton.title(for: .normal)!, forKey: buttonText + tabText + String(index! + 1) + "ExerciseName")
         }
         
         self.exerciseTableView.reloadData()
@@ -832,7 +828,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.visualEffectView.removeFromSuperview()
     }
     
-    @objc func showHelpLink(sender: UIButton) {
+    func showHelpLink(sender: UIButton) {
         self.blurBackground()
         self.helpLinkView = UIView(frame: CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 200))
         self.view.addSubview(self.helpLinkView)

@@ -13,7 +13,6 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var weight: UITextView!
     @IBOutlet weak var previousWeight: UITextView!
-    @IBOutlet weak var exercise: UITextView!
     @IBOutlet weak var setsAndReps: UITextView!
     
     @IBOutlet weak var deleteButton: UIButton!
@@ -24,14 +23,12 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        exercise.isUserInteractionEnabled = false
         previousWeight.isUserInteractionEnabled = false
         weight.isUserInteractionEnabled = true
         setsAndReps.isUserInteractionEnabled = false
         
         weight.keyboardType = UIKeyboardType.numbersAndPunctuation
         
-        self.setBorderOnCells(cell: exercise)
         self.setBorderOnCells(cell: previousWeight)
         self.setBorderOnCells(cell: weight)
         self.setBorderOnCells(cell: setsAndReps)
@@ -42,7 +39,6 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
         
         weight.delegate = self
 
-        exercise.text = ""
         previousWeight.text = ""
         weight.text = ""
         setsAndReps.text = ""
@@ -65,7 +61,7 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
         let buttonText = defaultStorage.object(forKey: "buttonText") as! String
         let tabText = defaultStorage.object(forKey: "tabText") as! String
-        defaultStorage.set(weight.text, forKey: buttonText + tabText + exercise.text + "Weight")
+        defaultStorage.set(weight.text, forKey: buttonText + tabText + exerciseButton.title(for: .normal)! + "Weight")
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
