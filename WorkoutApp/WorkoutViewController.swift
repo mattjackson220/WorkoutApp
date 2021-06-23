@@ -297,18 +297,18 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (storedValue != nil && storedValue != "") {
                 let url = URL(string: storedValue!)
                 attributedString.setAttributes([.link: url], range: NSMakeRange(0, attributedString.length))
+                cell.exerciseButton.isUserInteractionEnabled = true
             } else {
                 attributedString = NSMutableAttributedString(string: exerciseText!)
+                attributedString.setAttributes([.foregroundColor: UIColor.black], range: NSMakeRange(0, attributedString.length))
+                cell.exerciseButton.isUserInteractionEnabled = false
+                cell.exerciseButton.setTitleColor(UIColor.black, for: .normal)
+                cell.exerciseButton.attributedTitle(for: .normal)
             }
         }
         
         cell.exerciseButton.setTitle(exerciseText, for: .normal)
-        
-//        let helpLinkButton = UIButton(frame: cell.exercise.frame)
-//        cell.addSubview(helpLinkButton)
-//        helpLinkButton.setAttributedTitle(attributedString, for: .normal)
-//        helpLinkButton.addTarget(self, action: #selector(self.showHelpLink), for: .touchDown)
-                
+        cell.exerciseButton.setAttributedTitle(attributedString, for: .normal)
         cell.setsAndReps.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "SetsAndReps")
         cell.previousWeight.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "PreviousWeight")
         cell.weight.text = defaultStorage.string(forKey: buttonText + tabText + exerciseText! + "Weight")
@@ -320,7 +320,6 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.deleteButton.addTarget(self, action: #selector(self.removeExercise), for: .touchUpInside)
         
-        cell.exerciseButton.setAttributedTitle(attributedString, for: .normal)
         cell.exerciseButton.addTarget(self, action: #selector(self.exerciseButtonClicked), for: .touchDown)
         
         return cell
