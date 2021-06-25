@@ -153,6 +153,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="by0-fg-iRW"/>
                     <connections>
                         <outlet property="customWorkoutsTextLabel" destination="JZW-as-pR2" id="UP1-aS-bar"/>
                     </connections>
@@ -209,6 +210,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YiG-0k-twR"/>
                     <connections>
                         <outlet property="backToMainMenuButton" destination="24A-lq-u9t" id="BuT-gY-uGM"/>
                         <outlet property="createNewButton" destination="kLN-Cs-0Gz" id="Msr-7T-XpQ"/>
@@ -445,6 +447,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wqO-aR-1cQ"/>
                     <connections>
                         <outlet property="addNewExerciseButton" destination="Zu4-s1-hvd" id="SO3-cB-0Sw"/>
                         <outlet property="backToCustomWorkoutsButton" destination="uUT-hj-RpJ" id="kh4-8E-Cdt"/>
@@ -530,9 +533,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGp-0B-uBO">
+                                <rect key="frame" x="290" y="678" width="104" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to Menu">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PJC-Ua-zHk" kind="show" id="occ-4r-pZL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Y5U-LF-Jkb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewp-gZ-lS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -600,6 +615,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b49-hJ-nPR">
+                                <rect key="frame" x="290" y="678" width="104" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to Menu">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PJC-Ua-zHk" kind="show" id="1bg-OH-O8K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -611,7 +637,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="acZ-QW-cQ5"/>
+        <segue reference="GSl-bE-GCD"/>
         <segue reference="NtP-rv-y2u"/>
         <segue reference="wJS-OE-CR1"/>
     </inferredMetricsTieBreakers>
