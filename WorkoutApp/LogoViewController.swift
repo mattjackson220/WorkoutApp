@@ -223,7 +223,7 @@ class LogoViewController: UIViewController {
         helpLinkMap["Overhead Tri Extensions"] = "https://www.youtube.com/watch?v=nRiJVZDpdL0"
         
         // back and biceps
-        helpLinkMap["Lat Pulldowns"] = "https://www.google.com/search?q=youtube+how+to+do+lat+pulldowns&oq=youtube+how+to+do+lat+pulldowns&aqs=chrome..69i57j69i64.5883j0j4&sourceid=chrome&ie=UTF-8#kpvalbx=_L_3RYL3EC8zj-gSs84Qo25"
+        helpLinkMap["Lat Pulldowns"] = "https://www.youtube.com/watch?v=AOpi-p0cJkc"
         helpLinkMap["Bent DB Rows"] = "https://www.youtube.com/watch?v=QFq5jdwWwX4"
         helpLinkMap["Rear Delt Flys"] = "https://www.youtube.com/watch?v=0GSu6Z-Oj7U"
         helpLinkMap["Seated Rows"] = "https://www.youtube.com/watch?v=xQNrFHEMhI4"
