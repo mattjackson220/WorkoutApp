@@ -362,7 +362,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
                 exerciseUrl.placeholder = "Enter a URL for a help link"
             }
         })
-        
+                
         let cell = sender.superview?.superview as? ExerciseViewCell
         var table = cell?.superview?.superview as? UITableView
         if table == nil {
@@ -381,8 +381,33 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.exerciseTableView.reloadData()
         } ))
         
+        let urlField = alert.textFields![1]
+        alert.addTextField(configurationHandler: {(urlNote: UITextField!) in
+            urlNote.placeholder = "URL must start with http:// or https://"
+            urlNote.superview!.superview!.subviews[0].removeFromSuperview()
+            urlNote.superview!.backgroundColor = UIColor.clear
+        })
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object:urlField,
+        queue: OperationQueue.main) { (notification) -> Void in
+            let isValid = self.validateUrl(urlString: urlField.text!)
+            if isValid {
+                alert.actions[0].isEnabled = true
+            } else {
+                alert.actions[0].isEnabled = false
+            }
+        }
+        
+        alert.actions[0].isEnabled = self.validateUrl(urlString: alert.textFields![1].text!)
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func validateUrl(urlString: String) -> Bool {
+        if !urlString.hasPrefix("http://") && !urlString.hasPrefix("https://") {
+            return false
+        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
