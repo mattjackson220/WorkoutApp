@@ -302,13 +302,15 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 attributedString = NSMutableAttributedString(string: exerciseText!)
                 attributedString.setAttributes([.foregroundColor: UIColor.black], range: NSMakeRange(0, attributedString.length))
-                cell.exerciseButton.isUserInteractionEnabled = false
+                cell.exerciseButton.isUserInteractionEnabled = isInEditMode
                 cell.exerciseButton.setTitleColor(UIColor.black, for: .normal)
                 cell.exerciseButton.attributedTitle(for: .normal)
             }
         } else {
             exerciseText = ""
-            cell.exerciseButton.isUserInteractionEnabled = false
+            attributedString = NSMutableAttributedString(string: "")
+            attributedString.removeAttribute(.link, range: NSMakeRange(0, attributedString.length))
+            cell.exerciseButton.isUserInteractionEnabled = isInEditMode
         }
         
         cell.exerciseButton.setTitle(exerciseText, for: .normal)
@@ -340,7 +342,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     func editExerciseInfo(sender: UIButton) {
         let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.\n Note: The URL must be a YouTube link or a link to an embedded video.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField(configurationHandler: {(exerciseName: UITextField!) in
-            let senderText = sender.titleLabel?.text
+            let senderText = sender.attributedTitle(for: .normal)?.string
             if senderText != nil && senderText != "" {
                 exerciseName.text = senderText
             } else {
@@ -348,9 +350,9 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         })
         alert.addTextField(configurationHandler: {(exerciseUrl: UITextField!) in
-            let titleLabel = sender.titleLabel
-            if (titleLabel != nil && titleLabel!.text != nil) {
-                let url = self.defaultStorage.string(forKey: (titleLabel?.text!)!)
+            let titleLabel = sender.attributedTitle(for: .normal)?.string
+            if (titleLabel != nil && titleLabel != nil) {
+                let url = self.defaultStorage.string(forKey: (titleLabel)!)
                 if url != nil && url != "" {
                     exerciseUrl.text = url
                 } else {
