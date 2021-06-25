@@ -389,15 +389,14 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object:urlField,
         queue: OperationQueue.main) { (notification) -> Void in
-            let isValid = self.validateUrl(urlString: urlField.text!)
-            if isValid {
+            if urlField.text == "" {
                 alert.actions[0].isEnabled = true
             } else {
-                alert.actions[0].isEnabled = false
+                alert.actions[0].isEnabled = self.validateUrl(urlString: urlField.text!)
             }
         }
         
-        alert.actions[0].isEnabled = self.validateUrl(urlString: alert.textFields![1].text!)
+        alert.actions[0].isEnabled = self.validateUrl(urlString: alert.textFields![1].text!) || alert.textFields![1].text == ""
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -888,14 +887,20 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @objc func hideHelpLink(sender: UIButton) {
         self.unBlurBackground()
-        self.helpLinkView.removeFromSuperview()
-        self.backButton.removeFromSuperview()
-        self.helpLinkPlayerWebView.removeFromSuperview()
+        if self.helpLinkView != nil {
+            self.helpLinkView.removeFromSuperview()
+        }
+        if self.backButton != nil {
+            self.backButton.removeFromSuperview()
+        }
+        if self.helpLinkPlayerWebView != nil {
+            self.helpLinkPlayerWebView.removeFromSuperview()
+        }
     }
     
     func playHelpLink(attrTitle: NSAttributedString) {
         guard
-            let url = attrTitle.attribute(.link, at: 1, effectiveRange: nil)
+            let url = attrTitle.attribute(.link, at: 0, effectiveRange: nil)
             else { return }
         
         var urlString = (url as! URL).absoluteString
