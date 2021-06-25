@@ -47,9 +47,9 @@ class LogoViewController: UIViewController {
         super.viewDidLoad()
         
         //delete all history
-        if let bundle = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: bundle)
-        }
+//        if let bundle = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: bundle)
+//        }
         
         self.loadDefaultWorkoutMaps()
         
@@ -94,6 +94,7 @@ class LogoViewController: UIViewController {
             defaultStorage.set(todayString, forKey: "todayDate")
         }
         
+        // change this to == to demo with date change everytime app is closed
         if previousTodayString != todayString {
             defaultStorage.set(todayString, forKey: "todayDate")
             defaultStorage.set(previousTodayString, forKey: "previousDate")
