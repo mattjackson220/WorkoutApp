@@ -279,7 +279,7 @@ class CustomWorkoutsViewController: UIViewController {
             if (!field.hasText) {
                 valid = false
             }
-            if (field.placeholder!.hasPrefix("Enter non-zero number") && field.text == "0") {
+            if (field.placeholder!.hasPrefix("Enter non-zero number") && Int(field.text! as String) == 0) {
                 valid = false
             }
         }
