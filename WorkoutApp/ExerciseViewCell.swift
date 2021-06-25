@@ -27,7 +27,7 @@ class ExerciseViewCell: UITableViewCell, UITextViewDelegate {
         weight.isUserInteractionEnabled = true
         setsAndReps.isUserInteractionEnabled = false
         
-        weight.keyboardType = UIKeyboardType.numbersAndPunctuation
+        weight.keyboardType = .decimalPad
         
         self.setBorderOnCells(cell: previousWeight)
         self.setBorderOnCells(cell: weight)

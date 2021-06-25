@@ -126,10 +126,12 @@ class CustomWorkoutsViewController: UIViewController {
         })
         alert.addTextField(configurationHandler: {(workoutCyclesCount: UITextField!) in
             workoutCyclesCount.placeholder = "Enter number of cycles (in weeks):"
+            workoutCyclesCount.keyboardType = .numberPad
         })
         
         alert.addTextField(configurationHandler: {(workoutTabCount: UITextField!) in
             workoutTabCount.placeholder = "Enter number of workouts per week:"
+            workoutTabCount.keyboardType = .numberPad
         })
         
         for okText in alert.textFields! {
@@ -156,6 +158,7 @@ class CustomWorkoutsViewController: UIViewController {
                     })
                     secondAlert.addTextField(configurationHandler: {(workoutTabExerciseCount: UITextField!) in
                         workoutTabExerciseCount.placeholder = "Enter number of exercises for tab " + String(index) + ": "
+                        workoutTabExerciseCount.keyboardType = .numberPad
                     })
                     
                 }
