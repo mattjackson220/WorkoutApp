@@ -125,12 +125,12 @@ class CustomWorkoutsViewController: UIViewController {
             workoutName.placeholder = "Enter workout name:"
         })
         alert.addTextField(configurationHandler: {(workoutCyclesCount: UITextField!) in
-            workoutCyclesCount.placeholder = "Enter non-zero number of cycles (in weeks):"
+            workoutCyclesCount.placeholder = "Enter non-zero number of weeks:"
             workoutCyclesCount.keyboardType = .numberPad
         })
         
         alert.addTextField(configurationHandler: {(workoutTabCount: UITextField!) in
-            workoutTabCount.placeholder = "Enter non-zero number of workouts per week:"
+            workoutTabCount.placeholder = "Enter non-zero weekly workouts:"
             workoutTabCount.keyboardType = .numberPad
         })
         
@@ -279,7 +279,7 @@ class CustomWorkoutsViewController: UIViewController {
             if (!field.hasText) {
                 valid = false
             }
-            if (field.placeholder!.hasPrefix("Enter non-zero number") && Int(field.text! as String) == 0) {
+            if (field.placeholder!.hasPrefix("Enter non-zero") && Int(field.text! as String) == 0) {
                 valid = false
             }
         }
