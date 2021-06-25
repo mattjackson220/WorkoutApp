@@ -131,7 +131,15 @@ class CustomWorkoutsViewController: UIViewController {
         alert.addTextField(configurationHandler: {(workoutTabCount: UITextField!) in
             workoutTabCount.placeholder = "Enter number of workouts per week:"
         })
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
+        
+        for okText in alert.textFields! {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object:okText,
+            queue: OperationQueue.main) { (notification) -> Void in
+                self.validateFields(alert: alert)
+               }
+        }
+        
+        let okButton1 = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
             let workoutNameTextField = alert.textFields![0] as UITextField
             let workoutCyclesCountTextField = alert.textFields![1] as UITextField
             let workoutTabCountTextField = alert.textFields![2] as UITextField
@@ -153,7 +161,7 @@ class CustomWorkoutsViewController: UIViewController {
                 }
             }
             
-            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
+            let okButton2 = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) -> Void in
                 var tabString = ""
                 var firstTab = ""
                 for field in secondAlert.textFields! {
@@ -180,8 +188,8 @@ class CustomWorkoutsViewController: UIViewController {
                    }
             }
             
-            okButton.isEnabled = false;
-            secondAlert.addAction(okButton);
+            okButton2.isEnabled = false;
+            secondAlert.addAction(okButton2);
 
             self.present(secondAlert, animated: true, completion: nil)
             
@@ -214,7 +222,9 @@ class CustomWorkoutsViewController: UIViewController {
             self.scrollView.addSubview(deleteButton)
             self.reloadAllWorkoutButtons()
 
-        }))
+        })
+        okButton1.isEnabled = false;
+        alert.addAction(okButton1)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
 
         self.present(alert, animated: true, completion: nil)

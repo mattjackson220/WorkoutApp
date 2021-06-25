@@ -289,7 +289,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         let cell: ExerciseViewCell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! ExerciseViewCell
         
-        let exerciseText = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
+        var exerciseText = defaultStorage.string(forKey: buttonText + tabText + String((indexPath as NSIndexPath).row + 1) + "ExerciseName")
         var attributedString = NSMutableAttributedString(string: "")
         if exerciseText != nil {
             attributedString = NSMutableAttributedString(string: exerciseText!)
@@ -306,6 +306,9 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.exerciseButton.setTitleColor(UIColor.black, for: .normal)
                 cell.exerciseButton.attributedTitle(for: .normal)
             }
+        } else {
+            exerciseText = ""
+            cell.exerciseButton.isUserInteractionEnabled = false
         }
         
         cell.exerciseButton.setTitle(exerciseText, for: .normal)
@@ -345,9 +348,14 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         })
         alert.addTextField(configurationHandler: {(exerciseUrl: UITextField!) in
-            let url = self.defaultStorage.string(forKey: (sender.titleLabel?.text!)!)
-            if url != nil && url != "" {
-                exerciseUrl.text = url
+            let titleLabel = sender.titleLabel
+            if (titleLabel != nil && titleLabel!.text != nil) {
+                let url = self.defaultStorage.string(forKey: (titleLabel?.text!)!)
+                if url != nil && url != "" {
+                    exerciseUrl.text = url
+                } else {
+                    exerciseUrl.placeholder = "Enter a URL for a help link"
+                }
             } else {
                 exerciseUrl.placeholder = "Enter a URL for a help link"
             }
