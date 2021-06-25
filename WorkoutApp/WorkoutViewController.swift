@@ -73,6 +73,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.setsAndReps.isUserInteractionEnabled = true
             cell.setsAndReps.backgroundColor = UIColor.lightGray
             cell.deleteButton.isHidden = false
+            cell.exerciseButton.isUserInteractionEnabled = true
         }
 
         for deleteTabButton in tabDeleteArray {
@@ -334,7 +335,7 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func editExerciseInfo(sender: UIButton) {
-        let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title:"Edit Exercise Information", message: "Please update the exercise information.\n Note: The URL must be a YouTube link or a link to an embedded video.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField(configurationHandler: {(exerciseName: UITextField!) in
             let senderText = sender.titleLabel?.text
             if senderText != nil && senderText != "" {
@@ -863,7 +864,9 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
             else { return }
         
         var urlString = (url as! URL).absoluteString
-        urlString = urlString.replacingOccurrences(of: "watch?v=", with: "embed/")
+        if urlString.contains("youtube") {
+            urlString = urlString.replacingOccurrences(of: "watch?v=", with: "embed/")
+        }
         
         self.helpLinkPlayerWebView = UIWebView(frame: self.helpLinkView.frame)
         self.helpLinkPlayerWebView.center = self.helpLinkView.center
